@@ -17,6 +17,10 @@ h1 {
     1px 1px 0 #000;
 }
 
+figure {
+	margin: 10px;
+}
+
 #button-array, #gif-content {
 	background-color: white;
 	margin-top: 30px;
@@ -31,6 +35,7 @@ h1 {
 
 #gif-content {
 	min-height: 400px;
+	margin-bottom: 50px;
 }
 
 .aussie-button {

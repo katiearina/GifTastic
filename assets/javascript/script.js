@@ -53,6 +53,8 @@ for (var i = 0; i < aussieFauna.length; i++) {
 
 $("button").on("click", function() {
 
+			$("#gif-content").empty();
+
 	var animal = $(this).attr("aussie-animal");
 
 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
@@ -63,8 +65,29 @@ $("button").on("click", function() {
 		})
 
 		.done(function(response) {
-			console.log(queryURL);
-			console.log(response);
+
+			var results = response.data;
+
+				for (var i = 0; i < results.length; i++) {
+
+					if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+
+						// console.log(queryURL);
+						// console.log(results);
+						// console.log(results[i].images.fixed_height.url);
+
+
+						$("#gif-content").append("<figure class='figure gif'><img src=" + results[i].images.fixed_height_still.url + 
+							"> <figcaption class='figure-caption'>Rating: " + results[i].rating.toUpperCase() + "</figcaption></figure>");
+
+					}
+				}
 		});
+
+});
+
+$(".gif").on("click", function() {
+
+var state = 
 
 });
