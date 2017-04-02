@@ -2,6 +2,7 @@
 body {
 	background-image: url("../images/Australia-Flag-Map-smaller.png");
 	font-family: 'Playfair Display', serif;
+	font-weight: 400;
 	text-align: center;
 }
 
@@ -17,10 +18,22 @@ h1 {
     1px 1px 0 #000;
 }
 
+/* Styling for GIF images */
 img {
 	margin-top: 10px;
 }
 
+/* Styling for label element (for form) */
+label {
+	font-weight: 700;
+}
+
+/* Styling for paragraph element */
+p {
+	font-weight: 700;
+}
+
+/* Styling for form div */
 #submit-form {
 	background-color: white;
 	border-style: solid;
@@ -29,14 +42,17 @@ img {
 	padding: 10px;
 }
 
+/* Sets margin on button-input field */
 #add-button-input {
 	margin-left: 5px;
 }
 
+/* Sets margin on submit button */
 #add-button {
 	margin-left: 30px;
 }
 
+/* Styling for main content areas (button div & content div) */
 #button-array, #gif-content {
 	background-color: white;
 	margin-top: 30px;
@@ -50,20 +66,19 @@ img {
 	outline-color: red;
 }
 
+/* Sets page spacing on main image content box */
 #gif-content {
 	min-height: 400px;
 	margin-bottom: 50px;
 }
 
+/* Styling for buttons generated on page load (from array) */
 .aussie-button {
-/*    padding: 14px 24px;*/
     border: 0 none;
-    font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
 	margin: 5px;
 }
-
 
 /* For footer positioning and to get rid of weird L-R scroll bar */
 html, body {
@@ -88,13 +103,8 @@ html, body {
 	height: 30px;
 	padding: 5px;
 	color: white;
-    text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
 	font-size: 11px;
-	font-weight: bold;
+	font-weight: 700;
 	background-color: red;
 	border-top-style: solid;
 	border-color: darkblue;
