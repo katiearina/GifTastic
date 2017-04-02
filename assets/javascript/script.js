@@ -35,11 +35,10 @@ var aussieFauna = [
 //---------------------------------------------------------------------------
 // FUNCTION DECLARATIONS!
 
+function renderButtons() {
+	$("#button-array").empty();
 
-//---------------------------------------------------------------------------
-// ACTUAL FUNCTIONAL BITS!
-
-for (var i = 0; i < aussieFauna.length; i++) {
+	for (var i = 0; i < aussieFauna.length; i++) {
 	aussieButton = $("<button>");
 
 	aussieButton.attr("aussie-animal", aussieFauna[i]);
@@ -49,11 +48,13 @@ for (var i = 0; i < aussieFauna.length; i++) {
 	aussieButton.text(aussieFauna[i]);
 
 	$("#button-array").append(aussieButton);
+	
+	}
 }
 
-$("button").on("click", function() {
+function createImages() {
 
-			$("#gif-content").empty();
+	$("#gif-content").empty();
 
 	var animal = $(this).attr("aussie-animal");
 
@@ -75,19 +76,58 @@ $("button").on("click", function() {
 						// console.log(queryURL);
 						// console.log(results);
 						// console.log(results[i].images.fixed_height.url);
+						var gifImage = $("<img>");
 
+						var rating = results[i].rating.toUpperCase();
 
-						$("#gif-content").append("<figure class='figure gif'><img src=" + results[i].images.fixed_height_still.url + 
-							"> <figcaption class='figure-caption'>Rating: " + results[i].rating.toUpperCase() + "</figcaption></figure>");
+						gifImage.attr("src", results[i].images.fixed_height_still.url);
+						
+						gifImage.attr("data-state", "still");
+						
+						gifImage.attr("data-still", results[i].images.fixed_height_still.url);
+						
+						gifImage.attr("data-animate", results[i].images.fixed_height.url);
+
+						$("#gif-content").append(gifImage)
+						
+						$("#gif-content").append("<p>Rating: " + rating + "</p>");
 
 					}
 				}
 		});
 
-});
+}
 
-$(".gif").on("click", function() {
+function assignDataState() {
+	var state = $(this).attr("data-state");
 
-var state = 
+		if (state === "still") {
+			$(this).attr("src", $(this).attr("data-animate"));
+			$(this).attr("data-state", "animate");
+		} 
+		else {
+			$(this).attr("src", $(this).attr("data-still"));
+			$(this).attr("data-state", "still");
+		}
+}
 
+function addInputButton() {
+	var newButton = $("#add-button-input").val().trim();
+	aussieFauna.push(newButton);
+	renderButtons();
+}
+
+
+//---------------------------------------------------------------------------
+// ACTUAL FUNCTIONAL BITS!
+
+renderButtons();
+
+$(document).on("click", "button", createImages);
+
+$(document).on("click", "img", assignDataState);
+
+$("#add-button").on("click", function(event) {
+	event.preventDefault();
+	addInputButton();
 });

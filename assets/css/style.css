@@ -17,13 +17,30 @@ h1 {
     1px 1px 0 #000;
 }
 
-figure {
-	margin: 10px;
+img {
+	margin-top: 10px;
+}
+
+#submit-form {
+	background-color: white;
+	border-style: solid;
+	border-width: 1px;
+	border-color: red;
+	padding: 10px;
+}
+
+#add-button-input {
+	margin-left: 5px;
+}
+
+#add-button {
+	margin-left: 30px;
 }
 
 #button-array, #gif-content {
 	background-color: white;
 	margin-top: 30px;
+	padding: 10px;
 	min-height: 100px;
 	border-style: solid;
 	border-width: 1px;
